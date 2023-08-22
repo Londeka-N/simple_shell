@@ -8,7 +8,6 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-/* Function prototypes */
 void print_prompt(void);
 char *get_command(void);
 void execute_command(char *command);
