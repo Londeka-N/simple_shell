@@ -9,6 +9,7 @@
 #include <string.h>
 #include <errno.h>
 #include <signal.h>
+#include <errno.h>
 
 extern char **environ;
 
@@ -23,6 +24,8 @@ int execute_forked_command(char **args, char *userInput_buf);
 int validate_command(char **args, char *userInput_buf, int exit_num);
 void free_args(char **args);
 void handle_sig(int sig);
+char *get_location(char *command);
+int create_error(char **args, int errorCode)
 
 /* STR HANDLERS */
 int _strlen(char *s);

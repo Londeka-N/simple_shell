@@ -36,10 +36,12 @@ int execute(char **args, char **front)
 		command = get_location(command);
 	}
 
-	if (!command || (access(command, F_OK) == -1))
+	if (command == NULL || access(command, F_OK)== -1)
 	{
-		if (errno == EERROR)
+		if (errno == ENOENT)
+		{
 			ret = (create_error(args, 126));
+		}
 		else
 			ret = (create_error(args, 127));
 	}
