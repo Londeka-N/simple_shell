@@ -25,7 +25,8 @@ int validate_command(char **args, char *userInput_buf, int exit_num);
 void free_args(char **args);
 void handle_sig(int sig);
 char *get_location(char *command);
-int create_error(char **args, int errorCode)
+int create_error(char **args, int errorCode);
+char* get_location(char* command);
 
 /* STR HANDLERS */
 int _strlen(char *s);
