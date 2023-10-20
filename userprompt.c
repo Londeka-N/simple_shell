@@ -1,5 +1,4 @@
 #include "shell.h"
-
 #define MAX_COMMAND_LENGTH 100
 
 int main(void)
@@ -26,6 +25,7 @@ int main(void)
 				continue;
 			}
 		}
+
 		command[read_size - 1] = '\0';
 
 		pid_t pid = fork();
@@ -38,25 +38,6 @@ int main(void)
 		else if (pid == 0)
 		{
 			execlp(command, command, NULL);
-			write(STDERR_FILENO, "No such command in Hell Oh Shell\n", 32);
-			_exit(EXIT_FAILURE);
-		}
-		else
-		{
-			wait(&status);
-		}
-	}
-	return 0;
-}
-		if (pid == -1)
-		{
-			perror("fork");
-			exit(EXIT_FAILURE);
-		}
-		else if (pid == 0)
-		{
-			execlp(command, command, NULL);
-			write(STDERR_FILENO, "No such command in Hell Oh Shell\n", 32);
 			_exit(EXIT_FAILURE);
 		}
 		else
